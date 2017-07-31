@@ -1,0 +1,15 @@
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let friend of collection">
+      <td scope="row">
+        <img ng-src="friend.photo" />
+      </td>
+      <td>{{ friend.currentStatus }}</td>
+      <td>{{ friend.address }}</td>
+
+      <td>
+        <button (click)="delete(friend)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
