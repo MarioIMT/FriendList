@@ -1,7 +1,13 @@
+<div style="text-align:left">
+  <h1>
+    Add New Friend
+  </h1>
+</div>
+
 <div>
      <a [routerLink]="['../']">Back</a>
 </div>
-
+<br>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
@@ -25,7 +31,7 @@
 
     <div>
       <label for="address">Address</label>
-      <input placeholder="address" type="text" [formControl]="form.controls['address']"/>
+      <textarea rows="4" cols="50" placeholder="address" type="text" [formControl]="form.controls['address']"></textarea>
       <small *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched" class="md-text-warn">You must include.</small>
     </div>
 
