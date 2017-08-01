@@ -2,32 +2,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule }    from '@angular/http';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import  { FriendsApiService } from './services/friends.service';
 
-import  { FriendsComponent } from './friends/friends.component';
-import  { FriendDetailComponent } from './friend-detail/component';
+import { AppComponent } from './app.component';
+import { FriendsApiService } from './services/friends.service';
+import { FriendListComponent, FriendViewComponent, FriendAddComponent } from './friends';
 
 const appRoutes: Routes = [
-  { path: '', component: FriendsComponent },
-  { path: 'friends/:id', component: FriendDetailComponent },
-  { path: '',   redirectTo: '/friends', pathMatch: 'full' },
-  { path: '**', component: FriendsComponent }
+  { path: 'friends', component: FriendListComponent },
+  { path: 'friends/:id/view', component: FriendViewComponent },
+  { path: 'friends/new', component: FriendAddComponent },
+  { path: '',   redirectTo: 'friends', pathMatch: 'full' },
+  { path: '**', redirectTo: 'friends', pathMatch: 'full' }
 ];
  
-
 @NgModule({
   declarations: [
     AppComponent,
-    FriendsComponent,
-    FriendDetailComponent
+    FriendListComponent,
+    FriendViewComponent,
+    FriendAddComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     HttpModule,
-    RouterModule.forChild(appRoutes)
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [FriendsApiService],
   bootstrap: [AppComponent]
