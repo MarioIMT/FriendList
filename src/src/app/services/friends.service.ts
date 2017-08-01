@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class FriendsApiService {
+    // used to bypass the CORS error
     static API_HOST: string = "http://localhost:8080/http://friendapi.azurewebsites.net/api";
     
     constructor(private http: Http) { }
@@ -30,7 +31,7 @@ export class FriendsApiService {
             .map(response => response.json());
     }
 
-     deleteFriend(id: Number): Observable<boolean> {
+    deleteFriend(id: Number): Observable<boolean> {
         debugger;
         var options = new BaseRequestOptions();
         options.method = RequestMethod.Delete;
