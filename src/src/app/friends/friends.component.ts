@@ -15,7 +15,6 @@ export class FriendsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this.fService.getFriends().subscribe(result => this.collection = result, error => {
       console.log(`Failed to load friends.`);
     });
@@ -25,7 +24,6 @@ export class FriendsComponent implements OnInit {
     debugger;
     this.fService.deleteFriend(friend.id)
       .subscribe(result => {
-        debugger;
         if (!result) {
           console.log(`Failed to delete friend ${friend.name}`);
           return;

@@ -25,7 +25,6 @@ export class FriendAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this.buildForm();
   }
 
@@ -40,13 +39,10 @@ export class FriendAddComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     Object.assign(this.friend, this.form.value);
     this.fService.postFriend(this.friend).subscribe((result: boolean) => {
-      debugger;
       this.router.navigateByUrl('../friends');
     }, (error: any) => {
-      debugger;
       this.form.setErrors({ '': 'Some error ....' })
     });
   }

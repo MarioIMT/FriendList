@@ -22,14 +22,11 @@ export class FriendViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this.route.paramMap
       .switchMap((params: ParamMap) => {
-        debugger;
         return this.fService.getFriend(+params.get(FriendViewComponent.ROUTE_PARAM_ID))
       })
       .subscribe((result: any) => {
-        debugger;
         Object.assign(this.friend, result);
       });
   }

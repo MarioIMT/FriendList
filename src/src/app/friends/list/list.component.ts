@@ -21,18 +21,15 @@ export class FriendListComponent implements OnInit {
   }
 
   delete(friend: any) {
-    debugger;
-    
-if (!confirm("Are you sure you want to delete this friend?")) { return} 
-    this.fService.deleteFriend(friend.friendId)
-      .subscribe(result => {
-        if (!result) {
-          console.log(`Failed to delete friend ${friend.name}`);
-          return;
-        }
+    if (!confirm("Are you sure you want to delete this friend?")) { return} 
+      this.fService.deleteFriend(friend.friendId)
+        .subscribe(result => {
+          if (!result) {
+            console.log(`Failed to delete friend ${friend.name}`);
+            return;
+          }
 
         this.ngOnInit();
       }, error => console.log(`Failed to load friends.`))
   }
-
 }

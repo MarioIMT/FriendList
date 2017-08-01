@@ -12,7 +12,6 @@ export class FriendsApiService {
     constructor(private http: Http) { }
 
     getFriends(): Observable<any[]> {
-        debugger;
         return this.http
             .get(`${FriendsApiService.API_HOST}/friend`)
             .map(response => response.json());
@@ -25,14 +24,12 @@ export class FriendsApiService {
     }
 
     postFriend(value: any): Observable<boolean> {
-        debugger;
         return this.http
             .post(`${FriendsApiService.API_HOST}/friend`, value)
             .map(response => response.json());
     }
 
     deleteFriend(id: Number): Observable<boolean> {
-        debugger;
         var options = new BaseRequestOptions();
         options.method = RequestMethod.Delete;
         options.body = id.toString();

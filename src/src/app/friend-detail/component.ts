@@ -15,7 +15,6 @@ export class FriendDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
     this.route.paramMap
       .switchMap((params: ParamMap) => this.fService.getFriend(+params.get('id')))
       .subscribe((result: any) => this.friend = result);
