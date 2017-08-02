@@ -1,0 +1,54 @@
+<div style="text-align:left">
+  <h1>
+    Add New Friend
+  </h1>
+</div>
+
+<div>
+     <a [routerLink]="['../']">Back</a>
+</div>
+<br>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <div>
+      <label for="name">Name</label>
+      <input placeholder="Name" type="text" [formControl]="form.controls['name']" autofocus/>
+      <small *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" class="md-text-warn">You must include.</small>
+    </div>
+
+    <div>
+      <label for="photo">Image Link</label>
+      <input placeholder="Image Link" type="text" [formControl]="form.controls['photo']"/>
+      <small *ngIf="form.controls['photo'].hasError('required') && form.controls['photo'].touched" class="md-text-warn">You must include.</small>
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input placeholder="phone" type="text" [formControl]="form.controls['phone']"/>
+      <small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="md-text-warn">You must include.</small>
+    </div>
+
+    <div>
+      <label for="address">Address</label>
+      <textarea rows="4" cols="50" placeholder="address" type="text" [formControl]="form.controls['address']"></textarea>
+      <small *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched" class="md-text-warn">You must include.</small>
+    </div>
+
+    <div>
+      <label for="currentStatus">Current Status</label>
+      <input placeholder="currentStatus" type="text" [formControl]="form.controls['currentStatus']"/>
+      <small *ngIf="form.controls['currentStatus'].hasError('required') && form.controls['currentStatus'].touched" class="md-text-warn">You must include.</small>
+    </div>
+
+    <div>
+      <label for="bio">Bio</label>
+      <textarea rows="4" cols="50" placeholder="bio" type="text" [formControl]="form.controls['bio']"></textarea>
+      <small *ngIf="form.controls['bio'].hasError('required') && form.controls['bio'].touched" class="md-text-warn">You must include Name.</small>
+    </div>
+
+    <small *ngIf="form.hasError('')" class="md-text-warn">{{form.errors['']}}</small>
+
+    <button md-raised-button color="primary" class="btn-block" type="submit" [disabled]="!form.valid">Add Friend</button>
+  </div>
+</form>

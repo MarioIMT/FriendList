@@ -1,0 +1,29 @@
+
+
+<div style="text-align:left">
+  <h1>
+    My Friends
+  </h1>
+</div>
+
+<div>
+     <a [routerLink]="['new']">Add new friend</a>
+</div>
+<br>
+<table class="table table-striped">
+  <tbody>
+    <tr *ngFor="let friend of collection">
+      <td scope="row">
+        <img [src]="friend.photo" />
+      </td>
+      <td>{{ friend.name }}</td>
+      <td>{{ friend.currentStatus }}</td>
+      <td>{{ friend.address }}</td>
+      <td>
+        <button (click)="delete(friend)">delete</button>
+        <a [routerLink]="[friend.friendId, 'view']">View</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
